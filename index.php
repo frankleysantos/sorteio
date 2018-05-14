@@ -4,6 +4,10 @@ require "cabecalho.php";
 require "config.php";
 $login = $_SESSION['id'];
 if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+	if (!empty($_SESSION['NOTA']['Alterado'])) {
+		echo $_SESSION['NOTA']['Alterado'];
+		# code...
+	}
 ?>
 <div class="row">
 <div class="col-md-12" align="right">

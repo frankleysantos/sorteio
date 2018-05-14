@@ -20,7 +20,7 @@ require "config.php";
 	    <label for="Nome">Nome</label>
 		<input type="text" name="Nome" value="<?php echo $sql['Nome'];?>" class="form-control">
 		<label for="CPF">CPF</label>
-        <input type="text" name="CPF" value="<?php echo $sql['CPF'];?>" class="form-control">
+        <input type="text" name="CPF" value="<?php echo $sql['CPF'];?>" class="form-control" maxlength="11" minlength="11">
         <label for="Cod. Verificação">Cod. Verificação</label>
         <input type="text" name="Cod_Ver_Nota" value="<?php echo $sql['Cod_Ver_Nota'];?>" class="form-control">
         <label for="Valor Nota">Valor Nota</label>

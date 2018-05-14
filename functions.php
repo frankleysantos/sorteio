@@ -44,6 +44,9 @@ function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $
     $sql->bindValue("Num_Sorte", $Num_Sorte);
     $sql->bindValue("Cupom", $Cupom);
     $sql ->execute();
+    $alterado = "Usuário alterado";
+    $_SESSION['NOTA']['Alterado']= $alterado;
+    header("Location: index.php");
 }
 
 function inserirNota($Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $Cupom){
