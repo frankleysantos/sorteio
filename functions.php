@@ -25,6 +25,27 @@ function buscarNota($VerCod){
     }
 }
 
+function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $Cupom){
+    require "config.php";
+    $sql = $pdo->prepare("UPDATE concorrentes SET
+        Nome = :Nome,
+        CPF = :CPF,
+        Cod_Ver_Nota = :Cod_Ver_Nota,
+        Valor_Nota = :Valor_Nota,
+        Num_Sorte = :Num_Sorte,
+        Cupom = :Cupom,
+        Insercao = Now() WHERE id = :id");
+
+    $sql->bindValue(":id", $id);
+    $sql->bindValue(":Nome", $Nome);
+    $sql->bindValue("CPF", $CPF);
+    $sql->bindValue("Cod_Ver_Nota", $Cod_Ver_Nota);
+    $sql->bindValue("Valor_Nota", $Valor_Nota);
+    $sql->bindValue("Num_Sorte", $Num_Sorte);
+    $sql->bindValue("Cupom", $Cupom);
+    $sql ->execute();
+}
+
 function inserirNota($Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $Cupom){
     require "config.php";
     $sql = $pdo->prepare("INSERT INTO concorrentes (Nome, CPF, Cod_Ver_Nota, Valor_Nota, Num_Sorte, Cupom,Insercao) 

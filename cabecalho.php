@@ -16,7 +16,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href="listar.php">Listar Cadastrados</a></li>
+					<li><a href="listar_cadastros.php">Listar Cadastrados</a></li>
 					<li><a href="listar_excel.php">Excel</a></li>
 				</ul>
 			</div>
