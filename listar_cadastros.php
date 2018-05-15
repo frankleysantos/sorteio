@@ -17,6 +17,7 @@ require "cabecalho.php";
 			<th>Nome</th>
 			<th>CPF</th>
 			<th>Cod. Verificação</th>
+			<th>Cod. Verificação</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,8 +29,6 @@ require "cabecalho.php";
 			<td><?php echo $notas['CPF'];?></td>
 			<td><?php echo $notas['Cod_Ver_Nota'];?></td>
 			<td><?php echo $notas['Valor_Nota'];?></td>
-			<td><?php echo $notas['Num_Sorte'];?></td>
-			<td><?php echo $notas['Cupom'];?></td>
 			<td><a class="btn btn-primary" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>">Editar</a></button></td>
 		</tr>
 	</tbody>

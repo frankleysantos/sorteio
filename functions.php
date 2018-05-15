@@ -25,15 +25,13 @@ function buscarNota($VerCod){
     }
 }
 
-function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $Cupom){
+function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota){
     require "config.php";
     $sql = $pdo->prepare("UPDATE concorrentes SET
         Nome = :Nome,
         CPF = :CPF,
         Cod_Ver_Nota = :Cod_Ver_Nota,
         Valor_Nota = :Valor_Nota,
-        Num_Sorte = :Num_Sorte,
-        Cupom = :Cupom,
         Insercao = Now() WHERE id = :id");
 
     $sql->bindValue(":id", $id);
@@ -41,8 +39,6 @@ function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $
     $sql->bindValue("CPF", $CPF);
     $sql->bindValue("Cod_Ver_Nota", $Cod_Ver_Nota);
     $sql->bindValue("Valor_Nota", $Valor_Nota);
-    $sql->bindValue("Num_Sorte", $Num_Sorte);
-    $sql->bindValue("Cupom", $Cupom);
     $sql ->execute();
     $alterado = "Usuário alterado";
     $_SESSION['NOTA']['Alterado']= $alterado;
@@ -60,6 +56,6 @@ function inserirNota($Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota, $Num_Sorte, $Cupom
     $sql->bindValue(":Num_Sorte", $Num_Sorte);
     $sql->bindValue(":Cupom", $Cupom);
     $sql->execute();
-    header("Location: index.php");
+    header("Location: form_cadastrar_nota.php");
 
 }
