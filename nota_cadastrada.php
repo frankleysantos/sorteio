@@ -34,7 +34,7 @@ require "cabecalho.php";
 	    <button type="button" class="btn btn-danger"><a href="sair.php">Sair</a></button>
 	    </div>
 	    <div class="col-md-6" align="right">
-		<button type="button" class="btn btn-primary"><a href="index.php">Nova Consulta</a></button>
+		<button type="button" class="btn btn-primary"><a href="index.php?msn=0">Nova Consulta</a></button>
 		</div>
 	</div>
 </div>

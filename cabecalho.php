@@ -84,7 +84,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href="listar_cadastros.php?msn=0">Listar Cadastrados</a></li>
+					<li><a href="listar_cadastros.php?msn=0&cod_ver=0">Listar Cadastrados</a></li>
 					<li><a href="listar_excel.php">Excel</a></li>
 				</ul>
 			</div>

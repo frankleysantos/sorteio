@@ -3,9 +3,10 @@
 session_start();
 require "config.php";
 require "cabecalho.php";
-
+ $cod = $_GET['cod'];
  $total = 0;
- $sql2 = $pdo -> prepare("SELECT count(*) as c FROM premiacao");
+ $sql2 = $pdo -> prepare("SELECT count(*) as c FROM premiacao WHERE Cod_Ver_Nota = :cod");
+ $sql2->bindValue(":cod", $cod);
  $sql2->execute();
  $sql2 = $sql2->fetch();
  $total = $sql2['c'];
@@ -19,7 +20,8 @@ require "cabecalho.php";
  }
  $p = ($pg-1) * $qntpg;
 
- $sql = $pdo->prepare("SELECT * FROM premiacao ORDER BY id LIMIT $p, $qntpg");
+ $sql = $pdo->prepare("SELECT * FROM premiacao WHERE Cod_Ver_Nota = :cod ORDER BY id LIMIT $p, $qntpg");
+ $sql -> bindValue(":cod", $cod);
  $sql -> execute();
  $count = 0;
     if ($sql -> rowCount() > 0 ) {
@@ -63,7 +65,7 @@ echo "<h3><label class='form-control label-warning' align='center'>".$count."&en
  <?php
  echo "<hr/>";
  for ($q=0; $q < $paginas; $q++) { 
- 	echo '<a href="./listar_cupom.php?p='.($q+1).'&msn=0" class="btn btn-default">'.($q+1).'</a>';
+ 	echo '<a href="./listar_cupom.php?cod='.$cod.'&p='.($q+1).'&msn=0" class="btn btn-default">'.($q+1).'</a>';
  }
  require "rodape.php";
  ?>

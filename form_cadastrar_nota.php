@@ -27,7 +27,7 @@ if($premiacaototal>0){
         $tmpnumsorte = $_POST['numsorte'.$i];
         $tmpcupom = $_POST['cupom'.$i];
 
-  $sql = $pdo->prepare("INSERT INTO premiacao (numsorte, cupom, id_concorrente, Cod_Ver_Nota, Insercao) VALUES (:numsorte, :cupom, :id_concorrente, :Cod_Ver_Nota, Now())");
+  $sql = $pdo->prepare("INSERT INTO premiacao (numsorte, cupom, id_concorrente, Cod_Ver_Nota, Insercao, atualizacao) VALUES (:numsorte, :cupom, :id_concorrente, :Cod_Ver_Nota, Now(), Now())");
   $sql->bindValue(":numsorte", $tmpnumsorte);
   $sql->bindValue(":cupom", $tmpcupom);
   $sql->bindValue(":id_concorrente", $id);

@@ -59,7 +59,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>				
 			<td><a class="btn btn-primary" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>">Editar</a></button></td>
 			<td><a class="btn btn-danger" href="excluir_dados.php?id=<?=$notas['id']?>">Deletar</a></button></td>
-			<td><a class="btn btn-primary" href="listar_cupom.php">Listar Nº Sorte - Cupom</a></button></td>
+			<td><a class="btn btn-primary" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>">Listar Nº Sorte - Cupom</a></button></td>
 		</tr>
 	</tbody>
 

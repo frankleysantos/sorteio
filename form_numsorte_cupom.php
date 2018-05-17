@@ -27,7 +27,7 @@ require "config.php";
 	<button type="submit" class="btn btn-primary">Alterar</button>
 	</div>
 	<div class="col-md-6" align="right">
-	<a href="index.php" class="btn btn-success">Home</a>
+	<a href="index.php?msn=0" class="btn btn-success">Home</a>
 	</div>
 	</div>
 </form>
