@@ -1,5 +1,5 @@
 function adicionarLinha(){
-	var local=document.getElementById('TabParentesco');
+	var local=document.getElementById('Tabpremiacao');
 	var tblBody = local.tBodies[0];
 	var newRow = tblBody.insertRow(-1);  
 	var total  = document.getElementById('familiatotal').value;
@@ -16,5 +16,5 @@ function adicionarLinha(){
 }
 
 function deleteRow(i){
-	document.getElementById('TabParentesco').deleteRow(i);
+	document.getElementById('Tabpremiacao').deleteRow(i);
 }

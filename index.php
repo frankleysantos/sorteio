@@ -4,12 +4,13 @@ require "cabecalho.php";
 require "config.php";
 $login = $_SESSION['id'];
 if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-	if (!empty($_SESSION['NOTA']['Alterado'])) {
-		echo $_SESSION['NOTA']['Alterado'];
+	$alterado = $_GET['msn'];
+	if (!empty($alterado)) {
+		echo "<label class='form-control btn btn-info'>".$alterado."</label>";
 		# code...
 	}
 ?>
-<div class="row">
+<div class="row"><br>
 <div class="col-md-12" align="right">
 <button type="button" class="btn btn-danger"><a href="sair.php">Sair</a></button>
 </div>
@@ -28,5 +29,5 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 else{
     header("Location: login.php");
 }
-
+require "rodape.php";
 ?>

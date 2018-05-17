@@ -15,7 +15,7 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
 	if ($sql->rowCount() > 0) {
 		$sql = $sql->fetch();
 		$_SESSION['id'] = $sql['id'];
-   	    header("Location: index.php");
+   	    header("Location: index.php?msn=0");
 	}
 	else{
 		?>
@@ -38,3 +38,7 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
 
 	<button type="submit" class="btn btn-primary">Logar</button>
 </form>
+
+<?php
+require "rodape.php";
+?>

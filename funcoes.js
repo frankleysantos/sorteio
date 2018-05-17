@@ -17,151 +17,85 @@ function deleteRow(i){
 	document.getElementById('TabPremiacao').deleteRow(i);
 }
 
-function mascara(o,f){
-	v_obj=o
-	v_fun=f
-	setTimeout("execmascara()",1)
-}
+function verificarCPF(c){
+    var i;
+    s = c;
+    var c = s.substr(0,9);
+    var dv = s.substr(9,2);
+    var d1 = 0;
+    var v = false;
+    var cpf = s;
 
-function execmascara(){
-	v_obj.value=v_fun(v_obj.value)
-}
+    if ( (cpf == "00000000000") || (cpf == "11111111111") || (cpf == "22222222222") || (cpf == "33333333333") 
+        || (cpf == "44444444444") || (cpf == "55555555555") || (cpf == "66666666666")
+        || (cpf == "77777777777") || (cpf == "88888888888") || (cpf == "99999999999")){
+        alert("CPF Inválido")
+        v = true;
+        document.getElementById('cpf').value=null;
+        return false; 
+    }  
+    for (i = 0; i < 9; i++){
+        d1 += c.charAt(i)*(10-i);
+    }
 
-function mcel(v){
-	v=v.replace(/\D/g,"");
-	v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
-	v=v.replace(/(\d)(\d{4})$/,"$1-$2");
-	return v;
-}
+    d1 = 11 - (d1 % 11);
+    if (d1 > 9) d1 = 0;
+    if (dv.charAt(0) != d1){
+        alert("CPF Inválido")
+        v = true;
+        document.getElementById('cpf').value=null;
+        document.getElementById('CPF').value=null;
+        return false;   
+    }
+ 
+    d1 *= 2;
+    for (i = 0; i < 9; i++){
+        d1 += c.charAt(i)*(11-i);
+    }
+    d1 = 11 - (d1 % 11);
+    if (d1 > 9) d1 = 0;
+    if (dv.charAt(1) != d1){
+        alert("CPF Inválido")
+        v = true;
+        document.getElementById('cpf').value=null;
+        document.getElementById('CPF').value=null;
+        return false;
+        
+    }
+    if (!v) {
+        
+    }
 
-function mfixo(v){
-	v=v.replace(/\D/g,"");
-	v=v.replace(/^(\d{2})(\d)/g,"($1) $2");
-	v=v.replace(/(\d)(\d{4})$/,"$1-$2");
-	return v;
-}
-
-window.onload = function(){
-	id('Fone_Cel').onkeyup = function(){
-		mascara( this, mcel );
-	}
-	id('Fone_Fixo').onkeyup = function(){
-        	mascara( this, mfixo );}
-}
-
-function cep(o,f){
-	v_obj=o
-	v_fun=f
-	setTimeout("execcep()",1)
-}
-
-function execcep(){
-	v_obj.value=v_fun(v_obj.value)
-}
-
-function mcep(v){
-	v=v.replace(/\D/g,"");            
-	v=v.replace(/^(\d{2})(\d)/g,"$1.$2"); 
-	v=v.replace(/(\d)(\d{3})$/,"$1-$2");    
-	return v;
-}
-
-function id( el ){
-	return document.getElementById( el );
-}
-
-window.onload = function(){
-	id('End_CEP').onkeyup = function(){
-		cep( this, mcep );
-	}
-}
-
-
-function mostraTipo(){
-	if((document.getElementById("Trans_Forma").value=="carro")||(document.getElementById("Trans_Forma").value=="moto")){
-		document.getElementById("Trans_Tipo").style.display="block";
-	}else{
-		document.getElementById("Trans_Tipo").style.display="none";
-	}			
 }
 
 function dataConta(c){
-	if(c.value.length ==2){
-		c.value += '/';
-	}
-	if(c.value.length==5){
-		c.value += '/';	
-	}
+    if(c.value.length ==2){
+        c.value += '/';
+    }
+    if(c.value.length==5){
+        c.value += '/'; 
+    }
 }
 
-function mostraimovel(){
-	if(document.getElementById("Hab_Modo").value=="proprio"){
-		document.getElementById("Hab_propria").style.display="block";
-		document.getElementById("Hab_valor").style.display="none";
-	}else{
-		document.getElementById("Hab_propria").style.display="none";
-	}
-
-	if((document.getElementById("Hab_Modo").value=="alugada")
-		|| (document.getElementById("Hab_Quit").value=="nao")){
-		document.getElementById("Hab_valor").style.display="block";
-	}else{
-		document.getElementById("Hab_valor").style.display="none";
-	}
-
-	if(
-		(document.getElementById("Hab_Modo").value=="invadida")||
-		(document.getElementById("Hab_Modo").value=="cedida")
-	){
-		document.getElementById("Hab_propria").style.display="none";
-		document.getElementById("Hab_valor").style.display="none";
-		document.getElementById("Hab_Quit").value="";
-		document.getElementById("Hab_Valor").value=null;
-	}
+function formatacpf(c){
+    if(c.value.length ==3){
+        c.value += '.';
+    }
+    if(c.value.length==7){
+        c.value += '.'; 
+    }
+    if(c.value.length==11){
+        c.value += '-'; 
+    }
 }
 
-
-function moeda(z){ 
-	v = z.value; 
-	v=v.replace(/\D/g,"")
-	v=v.replace(/(\d{1})(\d{1,2})$/,"$1,$2")
-	z.value = v; 
-}
-
-function deficienteOutra(){
-	if(document.getElementById("Deficiente_Qual").value=="Outra"){
-		document.getElementById("Def_tmp").style.display="block";
-		document.getElementById("Def_Outra").required=true;
-	}else{
-		document.getElementById("Def_tmp").style.display="none";
-	}
-}
-function SetRequired(){
-/*	document.getElementById("Status_escolar").attributes="required";
-	document.getElementById("CadUnico").attributes"required";
-/*	document.getElementById("TimeRes").attributes.required="required";
-	document.getElementById("Ling_Ingles").attributes.required="required";
-	document.getElementById("Ling_Espanhol").attributes.required="required";
-	document.getElementById("Pensao_Paga").attributes.required="required";
-	document.getElementById("Pensao_Recebe").attributes.required="required";
-	document.getElementById("Renda_Maior").attributes.required="required";
-	document.getElementById("Renda_Mensal_Individual").attributes.required="required";
-	document.getElementById("Renda_Mensal_Capita").attributes.required="required";
-	document.getElementById("Deficiente").attributes.required="required";
-	document.getElementById("Transferencia").attributes.required="required";
-	document.getElementById("Idoso").attributes.required="required";
-	document.getElementById("PlanoDeSaude").attributes.required="required";
-*/
-	}
-
-function verficaradio(){
-	selecionado=document.getElementById("Status_escolar").checked;
-	if (selecionado) {
-		window.alert("Você selecionou o checkbox.");
-		//document.getElementById("Status_escolar").attributes.required="required"=true;
-	}
-	else {	
-		window.alert(selecionado);
-		return false;
-	}
+function validasenha(s){
+    var senha1 = document.getElementById('senha').value;
+    var senha2 = document.getElementById('Confirmar').value;
+    
+    if (senha1 != senha2) {
+        alert("Senhas não conferem")
+        document.getElementById('senha').value = null;
+        document.getElementById('Confirmar').value = null;
+    }
 }

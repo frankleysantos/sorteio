@@ -8,7 +8,7 @@ header("Content-type: application/force-download");
 header("Content-Disposition: attachment; filename=notas_cadastradas.xls");
 header("Pragma: no-cache");
 require "config.php";
- $sql = $pdo -> prepare("SELECT * FROM concorrentes ORDER BY Nome");
+ $sql = $pdo -> prepare("SELECT c.id, c.Nome, c.CPF, c.Cod_Ver_Nota, c.Valor_Nota, c.Insercao, p.numsorte, p.cupom, p.atualizacao FROM concorrentes as c INNER JOIN premiacao as p WHERE c.id = p.id_concorrente");
  $sql -> execute();
  $count = 0;
     if ($sql -> rowCount() > 0 ) {
@@ -23,8 +23,10 @@ require "config.php";
 			<th>CPF</th>
 			<th>Cod. Verificação</th>
 			<th>Valor</th>
+			<th>Inserção</th>
 			<th>Nº da Sorte</th>
 			<th>Cupom</th>
+			<th>Atualização</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,8 +38,10 @@ require "config.php";
 			<td><?php echo $notas['CPF'];?></td>
 			<td><?php echo $notas['Cod_Ver_Nota'];?></td>
 			<td><?php echo $notas['Valor_Nota'];?></td>
-			<td><?php echo $notas['Num_Sorte'];?></td>
-			<td><?php echo $notas['Cupom'];?></td>
+			<td><?php echo $notas['Insercao']?></td>
+			<td><?php echo $notas['numsorte'];?></td>
+			<td><?php echo $notas['cupom'];?></td>
+			<td><?php echo $notas['atualizacao']?></td>
 		</tr>
 	</tbody>
 
