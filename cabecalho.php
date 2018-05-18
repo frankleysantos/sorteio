@@ -80,12 +80,13 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php?msn=0">Sorteio</a>
+				<a class="navbar-brand fa fa-check" href="index.php?msn=0">Téo Nota-10</a>
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href="listar_cadastros.php?msn=0&cod_ver=0">Listar Cadastrados</a></li>
-					<li><a href="listar_excel.php">Excel</a></li>
+					<!--<li><a href="listar_cadastros.php?msn=0&cod_ver=0">Listar Cadastrados</a></li>-->
+					<li><a href="listar_excel.php"><i class="fa fa-file-excel-o"></i>&ensp;Excel</a></li>
+          <li><a href="listar_busca.php?cod_ver=0&msn=0"><i class="fa fa-list"></i>&ensp;Listar Cadastrados</a></li>
 				</ul>
 			</div>
 		</div>

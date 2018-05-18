@@ -25,18 +25,18 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
 }
 ?>
 <form method="POST">
-	<legend>Sistema de Cupom</legend>
+	<legend>Téo Nota-10</legend>
 
 	<div class="form-group">
-		<label for="">Usuário</label>
+		<label class="fa fa-user">&ensp;Usuário</label>
 		<input type="text" class="form-control" name="usuario" placeholder="Login">
 	</div>
 	<div class="form-group">
-		<label for="">Senha</label>
+		<label class="fa fa-unlock">&ensp;Senha</label>
 		<input type="password" class="form-control" name="senha" placeholder="Senha">
 	</div>
 
-	<button type="submit" class="btn btn-primary">Logar</button>
+	<button type="submit" class="btn btn-primary fa fa-sign-in">&ensp;Logar</button>
 </form>
 
 <?php

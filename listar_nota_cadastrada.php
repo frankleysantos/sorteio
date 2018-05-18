@@ -17,13 +17,13 @@ require "config.php";
 
 	<div class="form-group">
 	    <input type="hidden" name="id" value="<?php echo $sql['id'];?>">
-	    <label for="Nome">Nome</label>
+	    <label for="Nome"><i class="fa fa-user"></i>&ensp;Nome</label>
 		<input type="text" name="Nome" value="<?php echo $sql['Nome'];?>" class="form-control">
-		<label for="CPF">CPF</label>
+		<label for="CPF"><i class="fa fa-list"></i>&ensp;CPF</label>
         <input type="text" name="CPF" value="<?php echo $sql['CPF'];?>" class="form-control" maxlength="12" minlength="11" id="cpf" onblur="return verificarCPF(this.value)">
-        <label for="Cod. Verificação">Cod. Verificação</label>
+        <label for="Cod. Verificação"><i class="fa fa-key"></i>&ensp;Cod. Verificação</label>
         <input type="text" name="Cod_Ver_Nota" value="<?php echo $sql['Cod_Ver_Nota'];?>" class="form-control" readonly="readonly">
-        <label for="Valor Nota">Valor Nota</label>
+        <label for="Valor Nota"><i class="fa fa-money"></i>&ensp;Valor Nota</label>
         <input type="text" name="Valor_Nota" value="<?php echo $sql['Valor_Nota'];?>" class="form-control">
         <!--
         <?php
@@ -59,10 +59,10 @@ require "config.php";
 	</div>
 	<div class="row">
 	<div class="col-md-6">
-	<button type="submit" class="btn btn-primary">Alterar</button>
+	<button type="submit" class="btn btn-primary"><i class="fa fa-check-square"></i>&ensp;Alterar</button>
 	</div>
 	<div class="col-md-6" align="right">
-	<a href="index.php" class="btn btn-success">Home</a>
+	<a href="index.php" class="btn btn-success"><i class="fa fa-home"></i>&ensp;Página Inicial</a>
 	</div>
 	</div>
 </form>

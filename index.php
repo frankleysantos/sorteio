@@ -12,17 +12,17 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 ?>
 <div class="row"><br>
 <div class="col-md-12" align="right">
-<button type="button" class="btn btn-danger"><a href="sair.php">Sair</a></button>
+<button type="button" class="btn btn-danger fa fa-sign-out"><a href="sair.php">&ensp;Sair</a></button>
 </div>
 </div>
 <form action="buscar_nota.php" method="POST" role="form">
 	<legend>Bem Vindo a tela de consulta da Nota Fiscal.</legend>
 
 	<div class="form-group">
-		<label for="">Código de Verificação da Nota</label>
+		<label class="fa fa-list">&ensp;Código de Verificação da Nota</label>
 		<input type="text" class="form-control" name="Cod_Ver_Nota" placeholder="Inserir Código Verificação">
 	</div>
-	<button type="submit" class="btn btn-primary">Buscar</button>
+	<button type="submit" class="btn btn-primary fa fa-search">&ensp;Buscar</button>
 </form>
 <?php    
 }
