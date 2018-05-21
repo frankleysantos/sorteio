@@ -2,6 +2,7 @@
 session_start();
 require "config.php";
 require "cabecalho.php";
+ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  $cod = $_GET['cod'];
  $total = 0;
  $sql2 = $pdo -> prepare("SELECT count(*) as c FROM premiacao WHERE Cod_Ver_Nota = :cod");
@@ -50,8 +51,14 @@ require "cabecalho.php";
 			<td><?php echo $notas['numsorte'];?></td>
 			<td><?php echo $notas['cupom'];?></td>
 			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>
-			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['atualizacao']));?></td>				
+			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['atualizacao']));?></td>
+			<?php 
+              if ($_SESSION['perfil'] == 'admin') {
+			?>				
 			<td><a class="btn btn-primary" href="form_numsorte_cupom.php?id=<?=$notas['id']?>">Editar Nº Sorte - Cupom</a></button></td>
+			<?php
+              }
+			?>
 		</tr>
 	</tbody>
 
@@ -67,5 +74,8 @@ echo "<h3><label class='form-control label-warning' align='center'>".$count."&en
  for ($q=0; $q < $paginas; $q++) { 
  	echo '<a href="./listar_cupom.php?cod='.$cod.'&p='.($q+1).'&msn=0" class="btn btn-default">'.($q+1).'</a>';
  }
+}else{
+	header("Location: login.php");
+}
  require "rodape.php";
  ?>

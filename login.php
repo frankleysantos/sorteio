@@ -13,8 +13,13 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
 	$sql->execute();
 
 	if ($sql->rowCount() > 0) {
-		$sql = $sql->fetch();
-		$_SESSION['id'] = $sql['id'];
+		$sql = $sql->fetchAll();
+		foreach ($sql as $tipo) {
+			
+		$_SESSION['id'] = $tipo['id'];
+		$_SESSION['perfil'] = $tipo['perfil'];
+		$_SESSION['user']   = $tipo['usuario'];
+		}
    	    header("Location: index.php?msn=0");
 	}
 	else{

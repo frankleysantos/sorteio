@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <?php 
 session_start();
 require "config.php";
@@ -36,7 +35,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  		$sql = $sql->fetchAll();
  		?>
  		<legend>Dados Encontrados</legend>
- 		<table class="table table-bordered table-hover">
+ 		<table class="table table-striped table-hover">
  			<thead>
  				<tr>
  					<th><li class="fa fa-users"></li>&ensp;Nome</th>
@@ -61,8 +60,16 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			        <td><?php echo $notas['numsorte'];?></td>
 			        <td><?php echo $notas['cupom'];?></td>
 			        <td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>				
+			        <?php 
+                       if ($_SESSION['perfil'] == 'admin') {
+			            ?>				
 			        <td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
 			        <td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			        <?php 
+			           }else{
+			           echo "<td>Editar e Excluir Bloqueados</td>";	
+			        }
+			        ?>
 			        <td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></td>
  				</tr>
  			</tbody>
@@ -123,9 +130,19 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			<td><?php echo $notas['Valor_Nota'];?></td>
 			<td><?php echo $notas['numsorte'];?></td>
 			<td><?php echo $notas['cupom'];?></td>
-			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>				
+			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>
+			<?php 
+             if ($_SESSION['perfil'] == 'admin') {
+             	# code...
+			?>				
 			<td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
 			<td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			<?php 
+			}else{
+			  echo "<td>Editar e Excluir Bloqueados</td>";	
+			}
+
+			?>
 			<td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></button></td>
 		</tr>
 	</tbody>

@@ -3,7 +3,7 @@ require "functions.php";
 require "cabecalho.php";
 require "config.php";
 
-if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+if (isset($_SESSION['id']) && !empty($_SESSION['id']) && ($_SESSION['perfil'] == 'admin')) {
 	# code...
     $id = $_GET['id'];
     $sql = $pdo->prepare("SELECT * FROM premiacao WHERE id = :id");

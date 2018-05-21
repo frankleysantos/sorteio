@@ -110,4 +110,13 @@
 	
 	<div class="container" style="padding-top: 100px" class="col-md-12">
 		<div class="principal">
+     <div class="row">
+       <div class="col-md-12" align="right">
+         <?php
+          if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+            echo "<label class='btn btn-default'>Usuário:&ensp;".$_SESSION['user']."</label>";
+          }
+         ?>
+       </div>
+     </div>
 			

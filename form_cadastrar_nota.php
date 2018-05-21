@@ -1,6 +1,6 @@
 <?php
-require "cabecalho.php";
 require "functions.php";
+require "cabecalho.php";
 require "config.php";
 
 if (isset($_POST['Nome']) && !empty($_POST['Nome'])) {
@@ -77,9 +77,6 @@ if($premiacaototal>0){
 	<div class="row">
 	<div class="col-md-6">
 	<button type="submit" class="btn btn-primary fa fa-check-square-o">&ensp;Cadastrar</button>
-	</div>
-	<div class="col-md-6" align="right">
-	<a href="sair.php" class="btn btn-danger"><i class="fa fa-sign-out"></i>&ensp;Sair</a>
 	</div>
 	</div>
 </form>
