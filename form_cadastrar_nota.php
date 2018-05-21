@@ -8,14 +8,16 @@ $Nome = $_POST['Nome'];
 $CPF = $_POST['CPF'];
 $Cod_Ver_Nota = $_POST['Cod_Ver_Nota'];
 $Valor_Nota = $_POST['Valor_Nota'];
+$Cadastrado_Por = $_SESSION['user'];
 
 
-$sql = $pdo->prepare("INSERT INTO concorrentes (Nome, CPF, Cod_Ver_Nota, Valor_Nota, Insercao) 
-        VALUES (:Nome, :CPF, :Cod_Ver_Nota, :Valor_Nota, Now())");
+$sql = $pdo->prepare("INSERT INTO concorrentes (Nome, CPF, Cod_Ver_Nota, Valor_Nota, Cadastrado_Por,Insercao) 
+        VALUES (:Nome, :CPF, :Cod_Ver_Nota, :Valor_Nota, :Cadastrado_Por,Now())");
 $sql->bindValue(":Nome", $Nome);
 $sql->bindValue(":CPF", $CPF);
 $sql->bindValue(":Cod_Ver_Nota", $Cod_Ver_Nota);
 $sql->bindValue(":Valor_Nota", $Valor_Nota);
+$sql->bindValue(":Cadastrado_Por", $Cadastrado_Por);
 $sql->execute();
 }
 $id = $pdo->lastInsertId();

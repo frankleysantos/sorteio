@@ -7,7 +7,7 @@ require "cabecalho.php";
 	<table class="table table-hover">
 			<tr>
 				<th>Nome</th>
-				<td><label class="form-control btn-warning"><?php echo $_SESSION['NOTA']['Nome'];?></label></td>
+				<td><label class="form-control label-warning"><?php echo $_SESSION['NOTA']['Nome'];?></label></td>
 			</tr>
 			<tr>
 			    <th>CPF</th>
@@ -20,6 +20,10 @@ require "cabecalho.php";
 		    <tr>
 		    	<th>Valor Nota</th>
 		    	<td><label class="form-control"><?php echo $_SESSION['NOTA']['Valor_Nota'];?></label></td>
+		    </tr>
+		    <tr>
+		    	<th>Cadastrado Por:</th>
+		    	<td><label class="form-control label-info"><?php echo $_SESSION['NOTA']['Cadastrado_Por'];?></label></td>
 		    </tr>
 			<tr>
 				<th>Data de Cadastro</th>

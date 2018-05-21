@@ -34,11 +34,11 @@ if (isset($_POST['usuario']) && !empty($_POST['usuario'])) {
 
 	<div class="form-group">
 		<label class="fa fa-user">&ensp;Usuário</label>
-		<input type="text" class="form-control" name="usuario" placeholder="Login">
+		<input type="text" class="form-control" name="usuario" placeholder="LOGIN">
 	</div>
 	<div class="form-group">
 		<label class="fa fa-unlock">&ensp;Senha</label>
-		<input type="password" class="form-control" name="senha" placeholder="Senha">
+		<input type="password" class="form-control" name="senha" placeholder="SENHA">
 	</div>
 
 	<button type="submit" class="btn btn-primary fa fa-sign-in">&ensp;Logar</button>

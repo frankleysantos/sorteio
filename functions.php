@@ -15,6 +15,7 @@ function buscarNota($VerCod){
     	$_SESSION['NOTA']['Cod_Ver_Nota'] = $sql['Cod_Ver_Nota'];
     	$_SESSION['NOTA']['Valor_Nota'] = $sql['Valor_Nota'];
     	$_SESSION['NOTA']['Insercao'] = $sql['Insercao'];
+        $_SESSION['NOTA']['Cadastrado_Por'] = $sql['Cadastrado_Por'];
  
     	header("Location: nota_cadastrada.php?msn=0");
     }

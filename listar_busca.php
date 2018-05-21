@@ -28,7 +28,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  <?php
  if (!empty($_POST['cod_ver'])) {
  	$cod_ver = $_POST['cod_ver'];
- 	$sql = $pdo->prepare("SELECT c.id, c.Nome, c.CPF, c.Cod_Ver_Nota, c.Valor_Nota, c.Insercao,p.numsorte,p.cupom FROM concorrentes as c INNER JOIN premiacao as p WHERE c.Cod_Ver_Nota = :cod_ver AND c.id = p.id_concorrente OR c.CPF = :cod_ver AND c.id = p.id_concorrente");
+ 	$sql = $pdo->prepare("SELECT c.id, c.Nome, c.CPF, c.Cod_Ver_Nota, c.Valor_Nota, c.Insercao,p.numsorte,p.cupom FROM concorrentes as c INNER JOIN premiacao as p WHERE c.Cod_Ver_Nota = :cod_ver AND c.id = p.id_concorrente OR c.CPF = :cod_ver AND c.id = p.id_concorrente ORDER BY c.id");
  	$sql->bindValue(":cod_ver", $cod_ver);
  	$sql->execute();
  	if ($sql->rowCount() > 0) {
@@ -100,7 +100,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  }
  $p = ($pg-1) * $qntpg;
 
- $sql = $pdo->prepare("SELECT c.id, c.Nome, c.CPF, c.Cod_Ver_Nota, c.Valor_Nota, c.Insercao,p.numsorte,p.cupom FROM concorrentes as c INNER JOIN premiacao as p WHERE c.id = p.id_concorrente ORDER BY c.Nome LIMIT $p, $qntpg");
+ $sql = $pdo->prepare("SELECT c.id, c.Nome, c.CPF, c.Cod_Ver_Nota, c.Valor_Nota, c.Insercao,p.numsorte,p.cupom FROM concorrentes as c INNER JOIN premiacao as p WHERE c.id = p.id_concorrente ORDER BY c.id LIMIT $p, $qntpg");
  $sql -> execute();
  $count = 0;
     if ($sql -> rowCount() > 0 ) {
