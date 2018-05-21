@@ -10,11 +10,6 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 		# code...
 	}
 ?>
-<div class="row"><br>
-<div class="col-md-12" align="right">
-<button type="button" class="btn btn-danger fa fa-sign-out"><a href="sair.php">&ensp;Sair</a></button>
-</div>
-</div>
 <form action="buscar_nota.php" method="POST" role="form">
 	<legend>Bem Vindo a tela de consulta da Nota Fiscal.</legend>
 

@@ -2,11 +2,12 @@
 session_start();
 require "cabecalho.php";
 ?>
+<h2>Código Verificador Cadastrado:</h2>
 <div class="table table-bordered table-hover">
 	<table class="table table-hover">
 			<tr>
 				<th>Nome</th>
-				<td><label class="form-control"><?php echo $_SESSION['NOTA']['Nome'];?></label></td>
+				<td><label class="form-control btn-warning"><?php echo $_SESSION['NOTA']['Nome'];?></label></td>
 			</tr>
 			<tr>
 			    <th>CPF</th>
@@ -20,21 +21,17 @@ require "cabecalho.php";
 		    	<th>Valor Nota</th>
 		    	<td><label class="form-control"><?php echo $_SESSION['NOTA']['Valor_Nota'];?></label></td>
 		    </tr>
-			<tr>				
-				<th>Números da Sorte</th>
-				<td><label class="form-control"><?php echo $_SESSION['NOTA']['Num_Sorte'];?></label></td>
-			</tr>
 			<tr>
 				<th>Data de Cadastro</th>
 				<td><label class="form-control"><?php echo date("d/m/Y H:i:s", strtotime($_SESSION['NOTA']['Insercao']))?></label></td>
 			</tr>
 	</table>
 	<div class="row">
-	    <div class="col-md-6" align="left">
-	    <button type="button" class="btn btn-danger"><a href="sair.php">Sair</a></button>
-	    </div>
-	    <div class="col-md-6" align="right">
-		<button type="button" class="btn btn-primary"><a href="index.php?msn=0">Nova Consulta</a></button>
+	    <div class="col-md-12" align="right">
+		  <a href="index.php?msn=0" class="btn btn-success fa fa-search">&ensp;Nova Consulta</a>
 		</div>
 	</div>
 </div>
+<?php 
+require "rodape.php";
+?>

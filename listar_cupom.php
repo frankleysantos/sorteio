@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <?php 
 session_start();
 require "config.php";
@@ -29,9 +28,6 @@ require "cabecalho.php";
         
 ?>
 <h3><i class="fa fa-list">Cupoms Cadastrados por Cod. de Verificação</i></h3>
-<div class="row">
-    <div class="col-md-12" align="right"><a href="sair.php" class="btn btn-danger">Sair</a></div>
- </div>
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>

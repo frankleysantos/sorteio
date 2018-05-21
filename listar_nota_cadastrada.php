@@ -1,8 +1,9 @@
 <?php
-require "cabecalho.php";
 require "functions.php";
+require "cabecalho.php";
 require "config.php";
 
+if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
     $id = $_GET['id'];
     $sql = $pdo->prepare("SELECT * FROM concorrentes WHERE id = :id");
     $sql->bindValue(":id", $id);
@@ -69,5 +70,8 @@ require "config.php";
                  
 <?php        
     }
+}else{
+    header("Location: login.php");
+}
 require "rodape.php";
 ?>

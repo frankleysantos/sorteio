@@ -15,16 +15,13 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  	}	
  $cod_ver = $_GET['cod_ver'];
  ?>
- <h1>Lista de Cadastros Realizados</h1>
- <div class="row">
-    <div class="col-md-12" align="right"><a href="sair.php" class="btn btn-danger fa fa-sign-out">Sair</a></div>
- </div>
- </br>
- <form action="" method="POST" role="form">
+ <div class="col-md-10"><h2>Lista de Cadastros Realizados</h2></div>
+ <form action="listar_busca.php?msn=0&cod_ver=0" method="POST" role="form">
  	<div class="row">
- 	   <div class="col-md-11">
- 		<input style="font-size: 12px;" type="text" class="form-control" id="" placeholder="Buscar com CPF ou Cod. Verificação da Nota" name="cod_ver"></div>
- 		<div class="col-md-1">
+ 	   <div class="col-md-10">
+ 		<input type="text" class="form-control" placeholder="CPF ou Cod. Verificador" name="cod_ver">
+ 		</div>
+ 		<div class="col-md-1" align="right">
  		<button type="submit" class="btn btn-primary fa fa-search">Buscar</button>
  		</div>
  	</div>
@@ -38,16 +35,17 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  	if ($sql->rowCount() > 0) {
  		$sql = $sql->fetchAll();
  		?>
+ 		<legend>Dados Encontrados</legend>
  		<table class="table table-bordered table-hover">
  			<thead>
  				<tr>
- 					<th>Nome</th>
-			        <th>CPF</th>
-			        <th>Cod. Verificação</th>
-			        <th>Valor Nota</th>
-			        <th>Nº da Sorte</th>
-			        <th>Cupom</th>
-			        <th>Data de Cadastro</th>
+ 					<th><li class="fa fa-users"></li>&ensp;Nome</th>
+			        <th><li class="fa fa-list"></li>&ensp;CPF</th>
+			        <th><li class="fa fa-key"></li>&ensp;Cod. Verificador</th>
+			        <th><li class="fa fa-money"></li>&ensp;Valor Nota</th>
+			        <th><li class="fa fa-list"></li>&ensp;Nº da Sorte</th>
+			        <th><li class="fa fa-list"></li>&ensp;Cupom</th>
+			        <th><li class="fa fa-list"></li>&ensp;Data Cadastro</th>
  				</tr>
  			</thead>
  		<?php
@@ -63,9 +61,9 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			        <td><?php echo $notas['numsorte'];?></td>
 			        <td><?php echo $notas['cupom'];?></td>
 			        <td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>				
-			        <td><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>">-Editar</a></button></td>
-			        <td><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>">-Deletar</a></button></td>
-			        <td><a class="btn btn-primary fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>">-Listar Nº Sorte - Cupom</a></button></td>
+			        <td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
+			        <td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			        <td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></td>
  				</tr>
  			</tbody>
  		<?php
@@ -74,7 +72,11 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
  		</table>
  		<a href="listar_busca.php?msn=0&cod_ver=0" class="btn btn-primary">Voltar</a>
  		<?php
+ 	}else{
+ 		echo "<label class='btn btn-warning'>Nenhum dado encontrado!</label>";
  	}
+
+
  }else{
  $total = 0;
  $sql2 = $pdo -> prepare("SELECT count(*) as c FROM premiacao");
@@ -101,13 +103,13 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 <table class="table table-striped table-hover" id="ulItens">
 	<thead>
 		<tr>
-			<th>Nome</th>
-			<th>CPF</th>
-			<th>Cod. Verificação</th>
-			<th>Valor Nota</th>
-			<th>Nº da Sorte</th>
-			<th>Cupom</th>
-			<th>Data de Cadastro</th>
+			<th><li class="fa fa-users"></li>&ensp;Nome</th>
+			<th><li class="fa fa-list"></li>&ensp;CPF</th>
+			<th><li class="fa fa-key"></li>&ensp;Cod. Verificador</th>
+			<th><li class="fa fa-money"></li>&ensp;Valor Nota</th>
+			<th><li class="fa fa-list"></li>&ensp;Nº da Sorte</th>
+			<th><li class="fa fa-list"></li>&ensp;Cupom</th>
+			<th><li class="fa fa-list"></li>&ensp;Data Cadastro</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -122,9 +124,9 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			<td><?php echo $notas['numsorte'];?></td>
 			<td><?php echo $notas['cupom'];?></td>
 			<td><?php echo date("d/m/Y H:i:s", strtotime($notas['Insercao']));?></td>				
-			<td><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>">-Editar</a></button></td>
-			<td><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>">-Deletar</a></button></td>
-			<td><a class="btn btn-primary fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>">-Listar Nº Sorte - Cupom</a></button></td>
+			<td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
+			<td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			<td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></button></td>
 		</tr>
 	</tbody>
 
@@ -138,7 +140,7 @@ echo "<h3><label class='form-control label-warning' align='center'>".$count."&en
  <?php
  echo "<hr/>";
  for ($q=0; $q < $paginas; $q++) { 
- 	echo '<a href="./listar_cadastros.php?p='.($q+1).'&msn=0" class="btn btn-default">'.($q+1).'</a>';
+ 	echo '<a href="./listar_busca.php?p='.($q+1).'&msn=0&cod_ver=0" class="btn btn-warning">'.($q+1).'</a>';
  }
 }
 }

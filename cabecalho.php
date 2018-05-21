@@ -82,12 +82,27 @@
 			<div class="navbar-header">
 				<a class="navbar-brand fa fa-check" href="index.php?msn=0">Téo Nota-10</a>
 			</div>
-			<div>
+			<div class="row">
+      <div class="col-md-8">
 				<ul class="nav navbar-nav">
 					<!--<li><a href="listar_cadastros.php?msn=0&cod_ver=0">Listar Cadastrados</a></li>-->
+          <?php
+           if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+          ?>
 					<li><a href="listar_excel.php"><i class="fa fa-file-excel-o"></i>&ensp;Excel</a></li>
           <li><a href="listar_busca.php?cod_ver=0&msn=0"><i class="fa fa-list"></i>&ensp;Listar Cadastrados</a></li>
+          <?php }?>
 				</ul>
+        </div>
+        <div class="col-md-2" align="right">
+          <ul class="nav navbar-nav">
+            <li><?php 
+           if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+           echo "<a href='sair.php' class='btn-danger fa fa-sign-out'>&ensp;Sair</a>";
+           }
+          ?></li>
+          </ul>
+        </div>
 			</div>
 		</div>
 	</div>

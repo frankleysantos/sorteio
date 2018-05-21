@@ -14,7 +14,6 @@ function buscarNota($VerCod){
     	$_SESSION['NOTA']['CPF'] = $sql['CPF'];
     	$_SESSION['NOTA']['Cod_Ver_Nota'] = $sql['Cod_Ver_Nota'];
     	$_SESSION['NOTA']['Valor_Nota'] = $sql['Valor_Nota'];
-    	$_SESSION['NOTA']['Num_Sorte'] = $sql['Num_Sorte'];
     	$_SESSION['NOTA']['Insercao'] = $sql['Insercao'];
  
     	header("Location: nota_cadastrada.php?msn=0");
@@ -77,5 +76,5 @@ function removerCadastros($id){
     $sql = $pdo->prepare("DELETE concorrentes.*, premiacao.* FROM concorrentes INNER JOIN premiacao ON concorrentes.id = premiacao.id_concorrente where concorrentes.id = :id");
     $sql->bindValue(":id", $id);
     $sql->execute();
-    header("Location: listar_cadastros.php?msn=Removido com Sucesso!");
+    header("Location: listar_busca.php?msn=Removido com Sucesso!&cod_ver=0");
 }
