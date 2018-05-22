@@ -23,12 +23,33 @@ require "cabecalho.php";
 		    </tr>
 		    <tr>
 		    	<th>Cadastrado Por:</th>
-		    	<td><label class="form-control label-info"><?php echo $_SESSION['NOTA']['Cadastrado_Por'];?></label></td>
+		    	<td><label class="form-control"><?php echo $_SESSION['NOTA']['Cadastrado_Por'];?></label></td>
 		    </tr>
 			<tr>
 				<th>Data de Cadastro</th>
 				<td><label class="form-control"><?php echo date("d/m/Y H:i:s", strtotime($_SESSION['NOTA']['Insercao']))?></label></td>
 			</tr>
+	</table>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Nº da Sorte:</th>
+				<th>Cupom:</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			 $contador = $_SESSION['NOTA']['count'];
+			 for ($count=0; $count < $contador; $count++) { 
+			 	if (isset($_SESSION['NOTA']['cupom'.$count])) {
+			 		echo "<tr>";
+			 		echo "<td><label class='form-control'>".$_SESSION['NOTA']['numsorte'.$count]."</label></td>";
+			 		echo "<td><label class='form-control'>".$_SESSION['NOTA']['cupom'.$count]."</label></td>";
+			 		echo "</tr>";
+			 }
+			 }
+			?>
+		</tbody>
 	</table>
 	<div class="row">
 	    <div class="col-md-12" align="right">

@@ -26,6 +26,7 @@ $premiacaototal = $_POST['premiacaototal'];
 
 if($premiacaototal>0){
       for ($i=0;$i<$premiacaototal;$i++){
+        if (isset($_POST['numsorte'.$i])) {
         $tmpnumsorte = $_POST['numsorte'.$i];
         $tmpcupom = $_POST['cupom'.$i];
 
@@ -35,7 +36,8 @@ if($premiacaototal>0){
   $sql->bindValue(":id_concorrente", $id);
   $sql->bindValue(":Cod_Ver_Nota",$Cod_Ver_Nota);
   $sql->execute();
-  header("Location: index.php?msn=0");   
+  header("Location: index.php?msn=0"); 
+  }  
       }
 }
 }
@@ -50,13 +52,13 @@ if($premiacaototal>0){
 
 	<div class="form-group">
 		<label><i class="fa fa-user"></i>&ensp;Nome</label>
-		<input type="text" class="form-control" name="Nome" placeholder="Nome da Pessoa da Nota" required> 
+		<input type="text" class="form-control" name="Nome" placeholder="Nome da Pessoa da Nota" required onkeyup="maiuscula(this)"> 
 		<label><i class="fa fa-file-text-o"></i>&ensp;CPF</label>
 		<input type="text" class="form-control" name="CPF" placeholder="CPF - Somente Números" maxlength="12" minlength="11" onblur="return verificarCPF(this.value)" id="cpf" required>
 		<label><i class="fa fa-file-text-o"></i>&ensp;Código Verificador</label>
 		<input type="text" name="Cod_Ver_Nota" class="form-control" placeholder="Código Verificador" value="<?php echo $_SESSION['NOTA']['Cod_Ver_Nota']?>" readonly="readonly">
 		<label><i class="fa fa-money"></i>&ensp;Valor da Nota</label>
-		<input type="text" name="Valor_Nota" class="form-control" placeholder="Valor da Nota" required>
+		<input type="text" name="Valor_Nota" class="form-control" placeholder="Valor da Nota" required onkeyup="moeda(this);">
 	</div>
 <legend><i class="fa fa-plus-square-o"></i>&ensp;Cadastro Dados Cupom</legend>
 <div class="row">

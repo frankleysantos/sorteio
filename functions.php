@@ -16,7 +16,20 @@ function buscarNota($VerCod){
     	$_SESSION['NOTA']['Valor_Nota'] = $sql['Valor_Nota'];
     	$_SESSION['NOTA']['Insercao'] = $sql['Insercao'];
         $_SESSION['NOTA']['Cadastrado_Por'] = $sql['Cadastrado_Por'];
- 
+      $sql2 = $pdo->prepare("SELECT p.cupom , p.numsorte FROM premiacao as p 
+        INNER JOIN concorrentes as c ON p.id_concorrente = c.id AND p.Cod_Ver_Nota = :VerCod");
+        $sql2->bindValue(":VerCod", $VerCod);
+        $sql2->execute();
+        if ($sql2->rowCount() > 0) {
+             $sql2 = $sql2->fetchAll();
+             $count=0;
+             foreach ($sql2 as $premiacao) {
+                 $_SESSION['NOTA']['cupom'.$count] = $premiacao['cupom'];
+                 $_SESSION['NOTA']['numsorte'.$count] = $premiacao['numsorte'];
+                 $count+=1;
+              }
+              $_SESSION['NOTA']['count'] = $count;
+         } 
     	header("Location: nota_cadastrada.php?msn=0");
     }
     else{
@@ -43,16 +56,18 @@ function alterarNota($id, $Nome, $CPF, $Cod_Ver_Nota, $Valor_Nota){
     header("Location: index.php?msn=Usuário alterado");
 }
 
-function alterarCupom($id, $numsorte, $cupom){
+function alterarCupom($id, $numsorte, $cupom, $atualizado_por){
     require "config.php";
     $sql = $pdo->prepare("UPDATE premiacao SET
         numsorte = :numsorte,
         cupom = :cupom,
+        atualizado_por = :atualizado_por,
         atualizacao = Now() WHERE id = :id");
 
     $sql->bindValue(":id", $id);
     $sql->bindValue(":numsorte", $numsorte);
     $sql->bindValue(":cupom", $cupom);
+    $sql->bindValue(":atualizado_por", $atualizado_por);
     $sql ->execute();
     header("Location: index.php?msn=Cupom Alterado");
 }

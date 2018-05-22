@@ -19,13 +19,13 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id']) && ($_SESSION['perfil'] ==
 	<div class="form-group">
 	    <input type="hidden" name="id" value="<?php echo $sql['id'];?>">
 	    <label for="Nome"><i class="fa fa-user"></i>&ensp;Nome</label>
-		<input type="text" name="Nome" value="<?php echo $sql['Nome'];?>" class="form-control">
+		<input type="text" name="Nome" value="<?php echo $sql['Nome'];?>" class="form-control" onkeyup="maiuscula(this)">
 		<label for="CPF"><i class="fa fa-list"></i>&ensp;CPF</label>
         <input type="text" name="CPF" value="<?php echo $sql['CPF'];?>" class="form-control" maxlength="12" minlength="11" id="cpf" onblur="return verificarCPF(this.value)">
         <label for="Cod. Verificação"><i class="fa fa-key"></i>&ensp;Cod. Verificação</label>
         <input type="text" name="Cod_Ver_Nota" value="<?php echo $sql['Cod_Ver_Nota'];?>" class="form-control" readonly="readonly">
         <label for="Valor Nota"><i class="fa fa-money"></i>&ensp;Valor Nota</label>
-        <input type="text" name="Valor_Nota" value="<?php echo $sql['Valor_Nota'];?>" class="form-control">
+        <input type="text" name="Valor_Nota" value="<?php echo $sql['Valor_Nota'];?>" class="form-control" onkeyup="moeda(this);">
         <!--
         <?php
         $sql2 = $pdo->prepare("SELECT * FROM premiacao WHERE id_concorrente = :id_concorrente");
