@@ -39,4 +39,5 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id']) && ($_SESSION['perfil'] ==
 }else{
 	header("Location: login.php");
 }
+require "rodape.php";
 ?>

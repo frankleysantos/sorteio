@@ -66,9 +66,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			        <td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
 			        <td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
 			        <?php 
-			           }else{
-			           echo "<td>Editar e Excluir Bloqueados</td>";	
-			        }
+			           }
 			        ?>
 			        <td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></td>
  				</tr>
@@ -138,10 +136,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 			<td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
 			<td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
 			<?php 
-			}else{
-			  echo "<td>Editar e Excluir Bloqueados</td>";	
 			}
-
 			?>
 			<td><abbr title="Listar e Editar Nº Sorte e Cupom"><a class="btn btn-success fa fa-list" href="listar_cupom.php?cod=<?=$notas['Cod_Ver_Nota']?>"></a></abbr></button></td>
 		</tr>

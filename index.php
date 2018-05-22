@@ -24,6 +24,11 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 	</div>
 	<button type="submit" class="btn btn-primary fa fa-search">&ensp;Buscar</button>
 </form>
+<div>
+	<label>
+	Após inserir o Código de Verificação, você será encaminhado para tela de cadastro ou para tela da nota cadastrada.
+	</label>
+</div>
 <?php    
 }
 else{
