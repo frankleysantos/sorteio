@@ -20,7 +20,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
 
 	<div class="form-group">
 		<label class="fa fa-list">&ensp;Código de Verificação da Nota</label>
-		<input type="text" class="form-control" name="Cod_Ver_Nota" placeholder="Inserir Código Verificação" onkeyup="this.value = Trim( this.value ); maiuscula(this)">
+		<input type="text" class="form-control" name="Cod_Ver_Nota" placeholder="Inserir Código Verificação" onkeyup="this.value = Trim( this.value ); maiuscula(this); codVer(this);" maxlength="19">
 	</div>
 	<button type="submit" class="btn btn-primary fa fa-search">&ensp;Buscar</button>
 </form>

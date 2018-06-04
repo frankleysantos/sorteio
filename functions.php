@@ -94,3 +94,11 @@ function removerCadastros($id){
     $sql->execute();
     header("Location: listar_busca.php?msn=Removido com Sucesso!&cod_ver=0");
 }
+
+function removerCupom($id){
+    require "config.php";
+    $sql = $pdo->prepare("DELETE FROM premiacao WHERE id = :id");
+    $sql->bindValue(":id", $id);
+    $sql->execute();
+    header("Location: listar_busca.php?msn=Removido com Sucesso!&cod_ver=0");
+}

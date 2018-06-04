@@ -26,7 +26,7 @@ $premiacaototal = $_POST['premiacaototal'];
 
 if($premiacaototal>0){
       for ($i=0;$i<$premiacaototal;$i++){
-        if (isset($_POST['numsorte'.$i])) {
+        if (isset($_POST['numsorte'.$i]) && !empty($_POST['numsorte'.$i]) && isset($_POST['cupom'.$i]) && !empty($_POST['cupom'.$i])) {
         $tmpnumsorte = $_POST['numsorte'.$i];
         $tmpcupom = $_POST['cupom'.$i];
 
@@ -82,6 +82,9 @@ if($premiacaototal>0){
 	<div class="col-md-6">
 	<button type="submit" class="btn btn-primary fa fa-check-square-o">&ensp;Cadastrar</button>
 	</div>
+  <div class="col-md-6" align="right">
+  <a href="index.php?msn=0" class="btn btn-danger fa fa-undo">&ensp;Cancelar</a>
+  </div>
 	</div>
 </form>
 

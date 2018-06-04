@@ -115,3 +115,15 @@ v=v.replace(/(\d{1})(\d{5})$/,"$1.$2") // coloca ponto antes dos ultimos 5 digit
 v=v.replace(/(\d{1})(\d{1,2})$/,"$1,$2") // coloca virgula antes dos ultimos 2 digitos
 z.value = "R$".concat(" ").concat(v);
 }
+
+function codVer(c){
+    if(c.value.length ==4){
+        c.value += '.';
+    }
+    if(c.value.length==9){
+        c.value += '.'; 
+    }
+    if(c.value.length==14){
+        c.value += '.'; 
+    }
+}

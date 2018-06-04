@@ -55,7 +55,8 @@ require "cabecalho.php";
 			<?php 
               if ($_SESSION['perfil'] == 'admin') {
 			?>				
-			<td><a class="btn btn-primary" href="form_numsorte_cupom.php?id=<?=$notas['id']?>">Editar Nº Sorte - Cupom</a></button></td>
+			<td><a class="btn btn-primary" href="form_numsorte_cupom.php?id=<?=$notas['id']?>">Editar Nº Sorte - Cupom</a></td>
+			<td><abbr title="Excluir dados"><a class="btn btn-danger fa fa-trash" href="excluir_cupom.php?id=<?=$notas['id']?>"></a></abbr></td>
 			<?php
               }
 			?>

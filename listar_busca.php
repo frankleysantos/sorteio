@@ -64,7 +64,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
                        if ($_SESSION['perfil'] == 'admin') {
 			            ?>				
 			        <td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
-			        <td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			        <td><abbr title="Exclui todos os dados vinculados ao código"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
 			        <?php 
 			           }
 			        ?>
@@ -134,7 +134,7 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
              	# code...
 			?>				
 			<td><abbr title="Editar dados Pessoais"><a class="btn btn-primary fa fa-pencil-square-o" href="listar_nota_cadastrada.php?id=<?=$notas['id']?>"></a></abbr></td>
-			<td><abbr title="Excluir"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
+			<td><abbr title="Exclui todos os dados vinculados ao código"><a class="btn btn-danger fa fa-trash-o" href="excluir_dados.php?id=<?=$notas['id']?>"></a></abbr></td>
 			<?php 
 			}
 			?>
